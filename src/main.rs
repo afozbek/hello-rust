@@ -1,5 +1,6 @@
 fn main() {
     hello_world();
+    test_match_operator(5)
 }
 
 fn hello_world() {
@@ -33,7 +34,8 @@ fn test_vectors() {
 fn test_match_operator(number: i32) {
     match number {
         1 => println!("Number is one"),
-        2 => println!("Number is two"),
+        2 | 3 => println!("Number is two or three"),
+        4..=10 => println!("It is between 4 to 10"),
         _ => println!("I dont know!!"),
     }
 }
