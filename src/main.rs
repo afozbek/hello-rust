@@ -56,3 +56,21 @@ fn panic_test() {
         },
     };
 }
+fn struct_format() {
+    struct Person {
+        name: String,
+        age: i32,
+    }
+
+    impl Person {
+        fn get_name(&self) {
+            return self.name;
+        }
+    }
+
+    let furkan = Person {
+        age: 28,
+        name: String::from("Furkan Ozbek"),
+    };
+    furkan.name
+}
