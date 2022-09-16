@@ -1,6 +1,7 @@
+use std::{fs::File, io::ErrorKind, panic::catch_unwind};
+
 fn main() {
     hello_world();
-    test_match_operator(5)
 }
 
 fn hello_world() {
@@ -38,4 +39,20 @@ fn test_match_operator(number: i32) {
         4..=10 => println!("It is between 4 to 10"),
         _ => println!("I dont know!!"),
     }
+}
+fn panic_test() {
+    let file = File::open("index.txt");
+
+    let f = match file {
+        Ok(file) => file,
+        Err(err) => match err.kind() {
+            ErrorKind::NotFound => match File::create("index.txt") {
+                Ok(file) => file,
+                Err(err) => panic!("Problem while creating a file {}", err),
+            },
+            other_error => {
+                panic!("Problem opening the file {}", other_error)
+            }
+        },
+    };
 }
