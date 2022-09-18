@@ -2,6 +2,7 @@ use std::{fs::File, io::ErrorKind, panic::catch_unwind};
 
 fn main() {
     hello_world();
+    vector_iter()
 }
 
 fn hello_world() {
@@ -72,4 +73,10 @@ fn struct_format() {
         age: 28,
         name: String::from("Furkan Ozbek"),
     };
+}
+fn vector_iter() {
+    let v1 = vec![1, 2, 3];
+    let v2: Vec<_> = v1.iter().map(|x| x + 1).collect();
+
+    assert_eq!(v2, vec![2, 3, 4]);
 }
