@@ -63,7 +63,7 @@ fn struct_format() {
     }
 
     impl Person {
-        fn get_name(&self) {
+        fn get_name(self) -> String {
             return self.name;
         }
     }
@@ -72,5 +72,4 @@ fn struct_format() {
         age: 28,
         name: String::from("Furkan Ozbek"),
     };
-    furkan.name
 }
